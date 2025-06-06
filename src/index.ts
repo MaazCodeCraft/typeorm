@@ -1,5 +1,6 @@
 import { createConnection } from "typeorm";
 import { Client } from "./entities/Clients";
+import { Banker } from "./Bankers";
 
 const main = async () => {
     try {
@@ -10,7 +11,7 @@ const main = async () => {
         username: "root",
         password: "Pak@1947",
         database: "typeorm",
-        entities: [Client],
+        entities: [Client, Banker],
         synchronize: true
     })
     console.log('Successfully Connected');
