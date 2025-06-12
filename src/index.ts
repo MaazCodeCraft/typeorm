@@ -1,22 +1,9 @@
-import { createConnection } from "typeorm";
+import { AppDataSource } from "./data-source";
 
-const main = async () => {
-    try {
-        const connection = await createConnection ({
-        type: "mariadb",
-        host: "127.0.0.1",
-        port: 3306,
-        username: "root",
-        password: "Pak@1947",
-        database: "typeorm",
-        synchronize: true
-    });
-        console.log("Successful Connected");
-    } catch (err) {
-        console.log(err);
-        throw new Error('Unable to connect to database');
-    }
-    
-}
-
-main ();
+AppDataSource.initialize()
+    .then (() => {
+        console.log("Data Source has been initialized!");
+    })
+    .catch ((err) => {
+        console.error("Error during Data Source initialization:", err);
+    })
