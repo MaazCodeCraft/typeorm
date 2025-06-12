@@ -1,4 +1,5 @@
-import { DataSource } from "typeorm"
+import { DataSource } from "typeorm";
+import { Photo } from "./entities/user";
 
 export const AppDataSource = new DataSource ({
         type: "mariadb",
@@ -8,4 +9,5 @@ export const AppDataSource = new DataSource ({
         password: "Pak@1947",
         database: "typeorm",
         synchronize: true,
+        entities: [Photo]
 })
