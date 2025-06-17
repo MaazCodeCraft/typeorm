@@ -19,6 +19,9 @@ async function main() {
     
     await AppDataSource.manager.save(photo);
     console.log("Photo has been saved. Photo id is, ", photo.id);
+
+    const savedPhotos = await AppDataSource.manager.find(Photo)
+    console.log("All photos from the db: ", savedPhotos)
 }
 
 main().catch(err => console.error(err));
